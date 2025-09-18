@@ -1,0 +1,244 @@
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --grad-a:#ffffff; /* cor do lado esquedo sfumado */
+  --grad-b:hsl(140, 49%, 54%); /* cor do lado direito sfumado */
+  --white:#fff;
+  --gray-light:#f5f5f5;
+  --gray-dark:#333;
+  --card-bg:hsl(115, 20%, 87%);
+  --card-text:#444;
+}
+body{
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,var(--grad-a),var(--grad-b));
+  color:var(--white);
+  line-height:1.6;
+}
+
+/* HERO FULLSCREEN */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,var(--grad-a),var(--grad-b));
+  position:relative;
+}
+.profile-pic{
+  width:180px;height:180px;
+  border-radius:50%;
+  overflow:hidden;
+  border:5px solid var(--white);
+  box-shadow:0 6px 20px rgba(0,0,0,0.3);
+  margin-bottom:1rem;
+}
+.profile-pic img{
+  width:100%;height:100%;
+  object-fit:cover;
+}
+.hero-title{
+  font-size:clamp(3rem,10vw,6rem);
+  font-weight:900;
+/* border-right: 3px solid var(--white);  ← remova essa linha */
+  white-space:nowrap;
+  overflow:hidden;
+    font-family: "Philosopher", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.hero-subtitle{
+  margin-top:.5rem;
+  font-size:1.3rem;
+  font-weight:500;
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+
+}
+.tagline{
+  margin-top:.5rem;
+  font-size:1rem;
+  opacity:.85;
+}
+.scroll-down{
+  position:absolute;
+  bottom:20px;
+  font-size:2rem;
+  opacity:0.8;
+  animation:bounce 1.5s infinite;
+}
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(10px);}
+}
+
+/* SEÇÕES */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:3rem 1.25rem;
+
+}
+.container h2{text-align:center;margin-bottom:1rem;color:var(--gray-dark);
+font-family: "Philosopher", sans-serif;
+  font-weight: 400;
+  font-style: normal;}
+
+  .container p{
+  font-family: "Zalando Sans Expanded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  text-align: center;
+
+  }
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.2rem;
+}
+
+/* CARDS */
+.card{
+  background:var(--card-bg);
+  color:var(--card-text);
+  border-radius:12px;
+  padding:1.5rem;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+.card h3{margin-bottom:.5rem;color:var(--gray-dark);
+font-family: "Philosopher", sans-serif;
+  font-weight: 400;
+  font-style: normal;}
+.card p{font-size:.95rem;}
+.icon{font-size:2rem;
+  margin-bottom:.5rem;
+  color:#333333;}
+
+/* BOTÃO */
+.btn{
+  display:inline-block;
+  margin-top:.8rem;
+  padding:.5rem 1rem;
+  background:linear-gradient(135deg,var(--grad-a),var(--grad-b));
+  color:var(--white);
+  text-decoration:none;
+  border-radius:8px;
+}
+.btn:hover{filter:brightness(1.1);}
+
+/* CONTATO */
+.contact-list  {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0;
+}
+.contact-list li a {
+  font-size: 1.8rem;              /* tamanho dos ícones */
+  color: var(--white);            /* cor padrão */
+  background: rgba(255,255,255,0.15); /* círculo translúcido */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;             /* deixa circular */
+  transition: 0.3s;
+}
+
+.contact-list li a:hover {
+  background: var(--white);       /* fundo branco ao passar o mouse */
+  color: var(--grad-a);           /* ícone lilás */
+  transform: translateY(-3px);    /* sobe um pouquinho */
+}
+
+.contact-list a{color:var(--gray-dark);text-decoration:none;background:var(--white);padding:.5rem 1rem;border-radius:8px;display:inline-block;}
+.contact-list a:hover{background:var(--gray-light);}
+
+/* RODAPÉ */
+.site-footer{
+  text-align:center;
+  padding:1rem;
+  font-size:.9rem;
+  background:var(--gray-dark);
+  color:var(--white);
+  margin-top:2rem;
+}
+
+/* grid dos projetos */
+.projects-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap:1.2rem;
+}
+
+/* card base (você já tem .card; se quiser, mantenha) */
+.project.card{
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.project.card:hover{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,.18);
+}
+
+/* thumbnail pequena no topo */
+.project .thumb{
+  height:140px;                 /* <— tamanho da foto */
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:.9rem;
+  background:#eee;              /* fallback caso a imagem não carregue */
+}
+.project .thumb img{
+  width:100%; height:100%;
+  object-fit:cover;             /* preenche sem distorcer */
+  display:block;
+  transition: transform .4s ease;
+  filter: saturate(1.05);
+}
+.project:hover .thumb img{
+  transform: scale(1.04);       /* leve zoom no hover */
+}
+
+/* cabeçalho e selo */
+.project header{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:.6rem; margin-bottom:.35rem;
+}
+.project h3{ margin:0; color:var(--gray-dark); line-height:1.2; }
+.badge{
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b));
+  color:#fff; font-size:.8rem; font-weight:700;
+  padding:.25rem .6rem; border-radius:999px;
+}
+
+/* tech stack */
+.stack{
+  list-style:none; display:flex; flex-wrap:wrap; gap:.4rem;
+  margin:.6rem 0 1rem; padding:0;
+}
+.stack li{
+  background:#f1f1f1; color:#444; border-radius:8px;
+  padding:.25rem .5rem; font-size:.85rem;
+}
+
+/* botões */
+.actions{ display:flex; gap:.6rem; flex-wrap:wrap; }
+.btn{
+  display:inline-block; padding:.5rem .9rem;
+  background: linear-gradient(135deg,var(--grad-a),var(--grad-b));
+  color:#fff; text-decoration:none; border-radius:8px;
+  font-weight:600; transition:.25s ease;
+
+}
+.btn:hover{ filter:brightness(1.07); transform: translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,.18); }
